@@ -1,8 +1,10 @@
 {
     "name": "dakar-framework/dakar-framework",
     "description": "The Web framework you deserve.",
-    "require": {
+    "homepage": "https://github.com/dakar-framework/dakar-framework",
+ 		"keywords": ["framework","webframework"],
+		"license": "MIT",
+		"require": {
         "php": "^7.2",
-        "another-vendor/package": "1.*"
     }
 }
