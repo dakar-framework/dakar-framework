@@ -1,0 +1,38 @@
+#!/usr/bin/env php
+<?php
+require_once("Framework/Project.php");
+require_once('Framework/parser.php');
+
+
+switch($argv[1]){
+    case "help":
+        echo("List of commands:${PHP_EOL}\n
+new => Creates a new project takes the name as a params ${PHP_EOL}\n
+help => Display this message ${PHP_EOL}\n
+-c => compile ${PHP_EOL}\n
+-h => display this help message ${PHP_EOL}\n
+-v => display the version ${PHP_EOL}");
+    break ; 
+    case "new":
+        if($argv[2]){
+            (new Project($argv[2])) ;
+        } else {
+            echo "No arguments were supplied to the 'new' command";
+        }
+    
+    break ; 
+    case "-c":
+        if($argv[2]){
+           Parser::parse($argv[2]);
+
+        } else {
+            echo "No arguments were supplied to the 'new' command";
+        }
+    
+    break ; 
+
+    default:
+       exit("\033[1;31m - Unvalid command use the \"help\" command to see options");
+}
+
+?>

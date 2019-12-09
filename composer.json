@@ -1,0 +1,8 @@
+{
+    "name": "dakar-framework/dakar-framework",
+    "description": "The Web framework you deserve.",
+    "require": {
+        "php": "^7.2",
+        "another-vendor/package": "1.*"
+    }
+}
