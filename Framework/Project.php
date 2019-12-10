@@ -1,6 +1,6 @@
 <?php 
 
-class Project {
+class ProjectStructure {
     public function __construct($dirname){
         // checks if a directory exists
         

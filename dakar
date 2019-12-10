@@ -1,8 +1,8 @@
 #!/usr/bin/env php
 <?php
-require_once("Framework/Project.php");
-require_once('Framework/parser.php');
 
+require_once("Framework/Project.php");
+require_once("Framework/parser.php");
 
 switch($argv[1]){
     case "help":
@@ -15,7 +15,7 @@ help => Display this message ${PHP_EOL}\n
     break ; 
     case "new":
         if($argv[2]){
-            (new Project($argv[2])) ;
+            (new ProjectStructure($argv[2])) ;
         } else {
             echo "No arguments were supplied to the 'new' command";
         }

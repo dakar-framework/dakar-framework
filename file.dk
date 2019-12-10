@@ -1,6 +1,7 @@
 // test of dakar lang
-print("HelloWorld")
-fn greet(name){
-    return (string) "Hello " . name
+print("Hello")
+name = 10
+echo(name)
+fn love(name):array{
+    return name 
 }
-greet("James Harden")

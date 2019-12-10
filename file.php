@@ -1,8 +1,9 @@
 <?php
 // $test $of $dakar $lang; 
-print("HelloWorld"); 
-function greet($name){
-    return ($string) "Hello " . $name; 
+print("Hello"); 
+$name = 10; 
+echo($name); 
+function love($name): array{
+    return $name ; 
 }
-greet("James Harden"); 
 ?>
