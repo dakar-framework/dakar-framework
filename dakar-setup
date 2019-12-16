@@ -1,4 +1,6 @@
 <?php 
-    copy("*","../");
-    echo("Let's start coding !");
+            shell_exec("cp -R Framework ../Framework");
+            shell_exec("cp dakar ../");
+            unlink("dakar-setup");
+    		echo("Let's start coding !");
 ?>
