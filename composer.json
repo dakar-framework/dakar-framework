@@ -9,7 +9,7 @@
             
     },
     "scripts": {
-                 "post-install-cmd":"php dakar-setup"
+                 "post-install-cmd":"php vendor/dakar-framework/dakar-framework/dakar-setup"
     },
     "minimum-stability": "dev"
 

@@ -1,5 +1,5 @@
 <?php 
-            shell_exec("cp -R Framework ../Framework");
-            shell_exec("cp dakar ../");
+            shell_exec("cp -R Framework ../../../Framework");
+            shell_exec("cp dakar ../../../");
     		echo("Let's start coding !");
 ?>
