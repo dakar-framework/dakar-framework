@@ -13,7 +13,7 @@
     },
     "minimum-stability": "dev",
     "bin":[
-        "vendor/dakar-framework/dakar-framework/dakar-setup"
+        "dakar-setup"
     ]
 
 }
