@@ -1,8 +1,9 @@
-import module.class
 
 string love = "Some string"
+string execute = 10 
+print(execute)
 
-class Name{
+class Name {
     string name = "Mohamed"
     public fn love(string name) : array {
         return "I love you"
@@ -14,6 +15,8 @@ string
 fn love(name):string {
     print("HelloWolrd")
 }
+print("Hello")
+
 // love = 10 trows error on line 2 / int assingnd to string vaiable
 
 /* 
@@ -26,8 +29,8 @@ fn love(name):string {
 # - remove  ; (OK)
 # - replace function with fn (OK)
 # - multiple db supprot
-# - projects creating setup 
-# - template rendering
+# - projects creating setup (HALF-WAY)
+# - template rendering 
 # - router 
 # - autoloading
 2 ------------ 
