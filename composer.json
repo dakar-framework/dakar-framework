@@ -12,6 +12,8 @@
                  "post-install-cmd":"php vendor/dakar-framework/dakar-framework/dakar-setup"
     },
     "minimum-stability": "dev",
-    "bin":["/vendor/dakar-framework/dakar-framework/dakar-setup"]
+    "bin":[
+        "vendor/dakar-framework/dakar-framework/dakar-setup"
+    ]
 
 }
