@@ -1,11 +1,16 @@
+Route::get("/Bonjour/{name}","bonjour/BonjourAvecParametre") 
 
-string love = "Some string"
+
+string love = fn() => "HelloWorld"
+
+echo(love())
+
 string execute = 10 
 print(execute)
 
 class Name {
     string name = "Mohamed"
-    public fn love(string name) : array {
+    public fn love(User name) : array {
         return "I love you"
     }
 }

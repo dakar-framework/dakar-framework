@@ -1,7 +1,7 @@
 #!/usr/bin/env php
 <?php
 
-require_once("Framework/Project.php");
+require_once("Framework/ProjectStructure.php");
 require_once("Framework/parser.php");
 
 switch($argv[1]){

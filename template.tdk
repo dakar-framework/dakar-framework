@@ -7,16 +7,18 @@
     <title>Document</title>
 </head>
 <body>
-    <div> #(name) </div>
-    
-    #[complex/name]
+    <p>
+    #for(name in {1..10})
+        <p> #("bonjour {name}")  <p>
+        #for(n in name)
+            #if(n %2 == 0)
+               <small> #(n) </small>
+            #else
+                <small>Doesnt exist!</small>
+            #end
+        #end
+    #end
 
-    #(name)
-    
-    #for(i in {1..10})
-    <p> #(my_func()) </p>
-    #endfor
-
-
+    </p>
 </body>
 </html>
