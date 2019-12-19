@@ -49,7 +49,7 @@ help => Display this message ${PHP_EOL}\n
 foreach($dirs as $d){
 	// For every path remove the Projectname prefix and the App directory.
 	$fileNamePath = explode("/",$d);
-	$fileNamePath = array_slice($fileNamePath,2);
+	$fileNamePath = array_slice($fileNamePath,1);
 	$filesToCreate = implode("/",$fileNamePath);
 	
 	// Array to filter directory paths.
@@ -68,14 +68,19 @@ foreach($dirs as $d){
 			
 			foreach(explode("\n",$currentIterationFile) as $currentFileDirectory){
 			
-				if( explode("/",$currentFileDirectory)[0] == ".php" ){ continue; }
-				if(!is_dir("Blog/App/.php/$currentFileDirectory")){
+				if(explode("/",$currentFileDirectory)[0] == ".php" ){ continue; }
+				if(!is_dir("App/.php/$currentFileDirectory")){
 					if(@explode(".",$currentFileDirectory)[1] == "dk" || 
 					   @explode(".",$currentFileDirectory)[1] == "tdk"){
-						touch("Blog/App/.php/$currentFileDirectory");
+                        if(@explode(".",$currentFileDirectory)[1] == "dk") {
+                            Parser::parse($currentFileDirectory,"Framework");
+                            // touch("$dirname/App/.php/" . explode('.',$currentFileDirectory)[0] . ".php");
+                            unlink($currentFileDirectory);
+                        } 
+                        // touch("$dirname/App/.php/$currentFileDirectory");
 				}
 				else {
-					mkdir("Blog/App/.php/$currentFileDirectory");
+					mkdir("App/.php/$currentFileDirectory");
 				}
 			}
 		}
@@ -85,13 +90,13 @@ foreach($dirs as $d){
 	}
 
 }
-
+    echo "$dirname : Build Succeded !\n";
         
     break ; 
     
     case "-c":
         if($argv[2]){
-           Parser::parse($argv[2]);
+           Parser::parse($argv[2],".");
 
         } else {
             echo "file name missing";
