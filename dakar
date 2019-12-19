@@ -43,7 +43,7 @@ help => Display this message ${PHP_EOL}\n
         $dirname = $json_structure['project']['name'];
 
         //Get the Iteratrable of our project structure .
-        $dirs = new RecursiveIteratorIterator(new RecursiveDirectoryIterator("$dirname/App",RecursiveDirectoryIterator::SKIP_DOTS));
+        $dirs = new RecursiveIteratorIterator(new RecursiveDirectoryIterator("App",RecursiveDirectoryIterator::SKIP_DOTS));
 
 // For every Path in The Recursive search.
 foreach($dirs as $d){

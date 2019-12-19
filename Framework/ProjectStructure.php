@@ -26,7 +26,7 @@ class ProjectStructure {
                  ];
               
               $json_data = json_encode($initial_informations);
-              file_put_contents("dakar.json",$json_data);
+              file_put_contents("$dirname/dakar.json",$json_data);
               
               echo("Project $dirname created!");
             } else {
