@@ -4,12 +4,27 @@
 require_once("Framework/ProjectStructure.php");
 require_once("Framework/parser.php");
 
+// Defining PHP_EOL in case it isnt.
+if (!defined('PHP_EOL')) {
+    if (strtoupper(substr(PHP_OS,0,3) == 'WIN')) {
+      define('PHP_EOL',"\r\n");
+    } elseif (strtoupper(substr(PHP_OS,0,3) == 'MAC')) {
+      define('PHP_EOL',"\r");
+    } elseif (strtoupper(substr(PHP_OS,0,3) == 'DAR')) {
+      define('PHP_EOL',"\n");
+    } else {
+      define('PHP_EOL',"\n");
+    }
+  }
+
+// handling command line option for the dakar command
 switch($argv[1]){
     case "help":
         echo("List of commands:${PHP_EOL}\n
 new => Creates a new project takes the name as a params ${PHP_EOL}\n
+build => Translate the dakar files to php ${PHP_EOL}\n
+-c => compile [file] ${PHP_EOL}\n
 help => Display this message ${PHP_EOL}\n
--c => compile ${PHP_EOL}\n
 -h => display this help message ${PHP_EOL}\n
 -v => display the version ${PHP_EOL}");
     break ; 
@@ -21,12 +36,65 @@ help => Display this message ${PHP_EOL}\n
         }
     
     break ; 
+    case "build":
+        $json_file = file_get_contents("dakar.json");
+        $json_structure = json_decode($json_file, true);
+
+        $dirname = $json_structure['project']['name'];
+
+        //Get the Iteratrable of our project structure .
+        $dirs = new RecursiveIteratorIterator(new RecursiveDirectoryIterator("$dirname/App",RecursiveDirectoryIterator::SKIP_DOTS));
+
+// For every Path in The Recursive search.
+foreach($dirs as $d){
+	// For every path remove the Projectname prefix and the App directory.
+	$fileNamePath = explode("/",$d);
+	$fileNamePath = array_slice($fileNamePath,2);
+	$filesToCreate = implode("/",$fileNamePath);
+	
+	// Array to filter directory paths.
+	$directory_path = [];
+	$filesToCreate = explode("\n",$filesToCreate);
+	
+	// For every path
+	foreach($filesToCreate as $f){
+		// For every part of the path
+		foreach(explode("/", $f) as $pathElement){
+			
+			// update the path 
+			array_push($directory_path,$pathElement); 
+			
+			$currentIterationFile = implode("/",$directory_path);
+			
+			foreach(explode("\n",$currentIterationFile) as $currentFileDirectory){
+			
+				if( explode("/",$currentFileDirectory)[0] == ".php" ){ continue; }
+				if(!is_dir("Blog/App/.php/$currentFileDirectory")){
+					if(@explode(".",$currentFileDirectory)[1] == "dk" || 
+					   @explode(".",$currentFileDirectory)[1] == "tdk"){
+						touch("Blog/App/.php/$currentFileDirectory");
+				}
+				else {
+					mkdir("Blog/App/.php/$currentFileDirectory");
+				}
+			}
+		}
+			
+		}
+	
+	}
+
+}
+
+        
+    break ; 
+    
     case "-c":
         if($argv[2]){
            Parser::parse($argv[2]);
 
         } else {
-            echo "No arguments were supplied to the 'new' command";
+            echo "file name missing";
         }
     
     break ; 

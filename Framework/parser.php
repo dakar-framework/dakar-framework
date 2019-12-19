@@ -15,6 +15,6 @@ class Parser {
         fclose($php_file);
 
     }
-}
+}   
 
 ?>

@@ -15,9 +15,19 @@ class ProjectStructure {
               mkdir($dirname.'/'.'App/views');
               mkdir($dirname.'/'.'App/backend');
               touch($dirname.'/'.'router.dk');
+              touch($dirname.'/'.'dakar.json');
               mkdir($dirname.'/'.'Database');
               touch($dirname.'/'.'config.toml');
-              shell_exec("cp -R ~/.composer/vendor/dakar-framework/dakar-framework/Framework .");
+              shell_exec("cp -R ~/.composer/vendor/dakar-framework/dakar-framework/Framework $dirname/");
+              $initial_informations = [
+                   "project" => [
+                     "name" => "$dirname"
+                   ]
+                 ];
+              
+              $json_data = json_encode($initial_informations);
+              file_put_contents("dakar.json",$json_data);
+              
               echo("Project $dirname created!");
             } else {
               echo "ERROR => directory exists".PHP_EOL;
