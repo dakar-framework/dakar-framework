@@ -40,8 +40,9 @@ class Processor {
 
         public static function process($file_name) : array { 
             $processed_file = [];
-            print("Processing..");
+         
             $file = @file_get_contents($file_name) or die("File not found");
+            print("Processing..\n");
             $line_number = 0 ; 
             $file = explode("\n",$file);
             // walk the file per line

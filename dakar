@@ -96,7 +96,10 @@ foreach($dirs as $d){
     
     case "-c":
         if($argv[2]){
-           Parser::parse($argv[2],".");
+           if(!$argv[3]){
+                $argv[3] = ".";
+           }
+           Parser::parse($argv[2],$argv[3]);
 
         } else {
             echo "file name missing";

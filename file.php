@@ -25,4 +25,5 @@
 // }
 $greeting = "Hello"; 
 echo($greeting . " my Frriend"); 
+echo(love_from_$z); 
 ?>
