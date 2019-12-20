@@ -37,13 +37,12 @@ help => Display this message ${PHP_EOL}\n
     
     break ; 
     case "build":
-        $json_file = file_get_contents("dakar.json");
-        $json_structure = json_decode($json_file, true);
-
-        $dirname = $json_structure['project']['name'];
-
-        //Get the Iteratrable of our project structure .
-        $dirs = new RecursiveIteratorIterator(new RecursiveDirectoryIterator("App",RecursiveDirectoryIterator::SKIP_DOTS));
+       
+$json_file = file_get_contents("dakar.json");
+$json_structure = json_decode($json_file, true);
+$dirname = $json_structure['project']['name'];
+//Get the Iteratrable of our project structure .
+$dirs = new RecursiveIteratorIterator(new RecursiveDirectoryIterator("App",RecursiveDirectoryIterator::SKIP_DOTS));
 
 // For every Path in The Recursive search.
 foreach($dirs as $d){
@@ -65,19 +64,24 @@ foreach($dirs as $d){
 			array_push($directory_path,$pathElement); 
 			
 			$currentIterationFile = implode("/",$directory_path);
-			
+            
 			foreach(explode("\n",$currentIterationFile) as $currentFileDirectory){
-			
+             
 				if(explode("/",$currentFileDirectory)[0] == ".php" ){ continue; }
-				if(!is_dir("App/.php/$currentFileDirectory")){
+                
+                if(!is_dir("App/.php/$currentFileDirectory")){
+                   
 					if(@explode(".",$currentFileDirectory)[1] == "dk" || 
-					   @explode(".",$currentFileDirectory)[1] == "tdk"){
+					   @explode(".",$currentFileDirectory)[1] == "tdk") {
+                        
+						
+						// If they are dk files 
                         if(@explode(".",$currentFileDirectory)[1] == "dk") {
-                            Parser::parse($currentFileDirectory,"Framework");
-                            // touch("$dirname/App/.php/" . explode('.',$currentFileDirectory)[0] . ".php");
-                            unlink($currentFileDirectory);
+                            $destination = @explode("/",$currentFileDirectory);
+                            array_pop($destination);
+                            $destination = implode("/",$destination);
+							Parser::parse(__DIR__."/App/$currentFileDirectory",__DIR__."/App/.php/$destination");
                         } 
-                        // touch("$dirname/App/.php/$currentFileDirectory");
 				}
 				else {
 					mkdir("App/.php/$currentFileDirectory");

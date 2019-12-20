@@ -41,7 +41,7 @@ class Processor {
         public static function process($file_name) : array { 
             $processed_file = [];
          
-            $file = @file_get_contents($file_name) or die("File not found");
+            $file = file_get_contents($file_name);
             print("Processing..\n");
             $line_number = 0 ; 
             $file = explode("\n",$file);
