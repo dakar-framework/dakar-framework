@@ -36,9 +36,12 @@ help => Display this message ${PHP_EOL}\n
         }
     
     break ; 
+
     case "build":
        
-$json_file = file_get_contents("dakar.json");
+
+$json_file = @file_get_contents(getcwd() . "/dakar.json") or die("Build can only be used inside a dakar project ");
+
 $json_structure = json_decode($json_file, true);
 $dirname = $json_structure['project']['name'];
 //Get the Iteratrable of our project structure .
@@ -73,14 +76,13 @@ foreach($dirs as $d){
                    
 					if(@explode(".",$currentFileDirectory)[1] == "dk" || 
 					   @explode(".",$currentFileDirectory)[1] == "tdk") {
-                        
 						
 						// If they are dk files 
                         if(@explode(".",$currentFileDirectory)[1] == "dk") {
                             $destination = @explode("/",$currentFileDirectory);
                             array_pop($destination);
                             $destination = implode("/",$destination);
-							Parser::parse(__DIR__."/App/$currentFileDirectory",__DIR__."/App/.php/$destination");
+							Parser::parse(getcwd() . "/App/$currentFileDirectory", getcwd() ."/App/.php/$destination");
                         } 
 				}
 				else {
@@ -94,7 +96,7 @@ foreach($dirs as $d){
 	}
 
 }
-    echo "$dirname : Build Succeded !\n";
+    echo "\n$dirname : Build Succeded !\n";
         
     break ; 
     
