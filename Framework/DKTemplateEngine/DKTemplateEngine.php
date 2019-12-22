@@ -27,20 +27,29 @@
             
         // replace characters
         public static function replace_DKTemplate(&$line) {
-            
-            $regex = "/\#\w*\([a-zA-Z_\-\> ]+\)/"; 
+          
+            $regex = "/\#\w*\([a-zA-Z_\-\> ,]+\)/"; 
             preg_match($regex,$line,$expression_found);
-  
+            
             if($expression_found){
                 if($expression_found[0][1] == "(") {
-                    $line = str_replace("#".$expression_found[0][1],"<?= ",$line);
-                    $line = str_replace(")"," ?>",$line);
-                    $vars = explode(",",$expression_found[0]);
-                    print_r($vars);
-                    // foreach($vars as $v){
-                    //     $line = str_replace($v,"$".$v,$line);
-                    // }
+                        $expr = $expression_found[0];
+                        $expression_found[0] = str_replace("#("," ",$expression_found[0]);
+                        $expression_found[0] = str_replace(")"," ",$expression_found[0]);
+                        $expression_found[0] = trim($expression_found[0]);
 
+                    
+                        if(strpos($expression_found[0],",")) {
+                        $vars = explode(",",$expression_found[0]);
+                        foreach($vars as $v) {
+                        $expression_found[0]= str_replace($v,"$".$v,$expression_found[0]);
+                        }
+                    } 
+                    else {
+                        $expression_found[0] = str_replace($expression_found[0],"$".$expression_found[0],$expression_found[0]); 
+                    }
+               
+                    $line = str_replace($expr,"<?= $expression_found[0] ?>",$line);
             }   
         }
         return $line ; 

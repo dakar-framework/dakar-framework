@@ -12,7 +12,8 @@
     </header>
     <h1> #( big_title) </h1>
     <h2> #(user->id) from the template !</h2>
-    <p> #(name) </p>
+    <p> #(name,age) </p>
+    <div id="#"> #(my_func())</div>
     <p> #(love) </p>
     <small id="#"> #explode() </small>
 
