@@ -12,8 +12,8 @@ class ProjectStructure {
               mkdir($dirname);
               mkdir($dirname.'/'.'App');
               mkdir($dirname.'/'.'App/.php');
-              mkdir($dirname.'/'.'App/views');
-              mkdir($dirname.'/'.'App/backend');
+              mkdir($dirname.'/'.'App/Views');
+              mkdir($dirname.'/'.'App/Backend');
               touch($dirname.'/'.'router.dk');
               touch($dirname.'/'.'dakar.json');
               mkdir($dirname.'/'.'Database');

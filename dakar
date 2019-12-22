@@ -116,5 +116,4 @@ foreach($dirs as $d){
     default:
        exit("\033[1;31m - Unvalid command use the \"help\" command to see options");
 }
-
 ?>

@@ -1,10 +1,5 @@
 Route::get("/Bonjour/{name}","bonjour/BonjourAvecParametre") 
 
-
-string love = fn() => "HelloWorld"
-
-echo(love())
-
 string execute = 10 
 print(execute)
 
@@ -20,22 +15,22 @@ string
 fn love(name):string {
     print("HelloWolrd")
 }
-print("Hello")
 
 // love = 10 trows error on line 2 / int assingnd to string vaiable
-
 /* 
+
 #- TODO:
 1 ------------
 
-# - lexer ()
-# - parser 
-# - remove dollar signs (OK)
-# - remove  ; (OK)
-# - replace function with fn (OK)
+# - Translator/Processor ()
+# - Parser
+# - Checker
+# - remove dollar signs (DONE)
+# - remove  ; (DONE)
+# - replace function with fn (DONE)
 # - multiple db supprot
-# - projects creating setup (HALF-WAY)
-# - template rendering 
+# - projects creating setup (DONE)
+# - template rendering (HALF-WAY)
 # - router 
 # - autoloading
 2 ------------ 
@@ -46,10 +41,8 @@ print("Hello")
 # - alternatives syntaxes for if and while and switch and for
 # - replace string interpolation with echo qutoes 
 # - synrtax highlingting (OK)
+3 --------
 
-3 - --------------
-
-4 --------
 # list comprehension [x for x in l]
 # templating sugar syntax
 # - bundle it in composer
@@ -62,8 +55,8 @@ print("Hello")
 #switch
 #case
 #: components/html
-#(:)
-#[components/header]
+#extends("components/header")
+#["components/header"]
 ### SSS
 #=  Name =#
 #= Sname
@@ -75,7 +68,6 @@ print("Hello")
 ## website translation to multiple language 
 */
 
-
 string a = "Hello #(name)" // ERROR 
 $a = "Hello #(name)"
 
@@ -85,17 +77,12 @@ fn doubleArray(array love) : Person {
     return [x for x in love]
 }
 
-
 fn hello() {
     connex = nex DbConnex() 
 }
+
 int a = 10 
 fn doSomeWork(int name){}
-
-m = { 
-    "HelloWorld"
-}
-$a = "Hello"
 
 db = new dkrConnextion(typeOfdb,databaseName,username,password,localhost)  
 
@@ -180,19 +167,13 @@ Route::get('user/{id}','userController')
     #{endforeach}
 </div>
 
-<div>
-
-</div>
-
-@html { #(name) }
-
 @html{
     <html>
     <body>
         ! hello
         #(:components/header)
         #(:components/ziyad)
-        
+        <p>Hello #(user) </p>
         #[components/view]
 
         /-- name --/
@@ -222,7 +203,7 @@ echo(s)
 arr = [1,2, 400]
 dic = [
     'name' => 2
-    '
+    
 ]
 unset(arr[1])
 
