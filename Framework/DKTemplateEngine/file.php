@@ -10,20 +10,13 @@
     <header>
 
     </header>
-    <h1> #(big_title) </h1>
-    <h2> #(user->id) from the template !</h2>
-    <p> #(name,age) </p>
-    <p>#for()</p>
+    <h1> <?= $big_title ?> </h1>
+    <h2> <?= $user->id ?> from the template !</h2>
+    <p> <?= $name,$age ?> </p>
+    <h2> #for() </h2>
     <div id="#"> #(my_func())</div>
-    <p> #(love) </p>
+    <p> <?= $love ?> </p>
     <small id="#"> #explode() </small>
-    <div>
-    
-    #for(i in {1..10})
-            <p> #(i) </p>
-    #end
-    </div>
-
 
 </body>
 </html>
