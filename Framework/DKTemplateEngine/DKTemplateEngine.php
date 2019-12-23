@@ -35,7 +35,6 @@
             }
 
             $rendered_template = implode("\n",$rendered_template);
-            echo $rendered_template . "\n";
             $tdk_file = explode(".",$tdk_file)[0];
             $rendered_file = fopen("$output_destination" . "/" . "$tdk_file.php", 'w');
             fwrite($rendered_file,$rendered_template);
