@@ -18,14 +18,14 @@ if (!defined('PHP_EOL')) {
   }
 
 if(!$argv[1]){
-echo("List of commands:${PHP_EOL}\n
- 27 new => Creates a new project takes the name as a params ${PHP_EOL}\n
- 28 build => Translate the dakar files to php ${PHP_EOL}\n
- 29 -c => compile [file] ${PHP_EOL}\n
- 30 help => Display this message ${PHP_EOL}\n
- 31 -h => display this help message ${PHP_EOL}\n
- 32 -v => display the version ${PHP_EOL}");
- 33     break ;	
+  echo("List of commands:${PHP_EOL}\n
+  new => Creates a new project takes the name as a params ${PHP_EOL}\n
+  build => Translate the dakar files to php ${PHP_EOL}\n
+  -c => compile [file] ${PHP_EOL}\n
+  help => Display this message ${PHP_EOL}\n
+  -h => display this help message ${PHP_EOL}\n
+  -v => display the version ${PHP_EOL}");
+
 }
 
 // handling command line option for the dakar command

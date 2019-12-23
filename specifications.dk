@@ -23,45 +23,44 @@ fn love(name):string {
 1 ------------
 
 # - Translator/Processor ()
-# - Parser
 # - Checker
 # - remove dollar signs (DONE)
 # - remove  ; (DONE)
 # - replace function with fn (DONE)
 # - multiple db supprot
 # - projects creating setup (DONE)
-# - template rendering (HALF-WAY)
+# - template rendering (75%)
 # - router 
 # - autoloading
 2 ------------ 
 
 # - new Import syntax
-# - the range function in loops 
+# - the range function in loops (TEMPLATE)
 # - add new for loops #for(i : items)
-# - alternatives syntaxes for if and while and switch and for
-# - replace string interpolation with echo qutoes 
-# - synrtax highlingting (OK)
+# - alternatives syntaxes for if and while and switch and for (REIMPLEMENTED)
+# - replace string interpolation with echo qutoes (DONE)
+# - synrtax highlingting (VSCODE-EXT)
 3 --------
 
 # list comprehension [x for x in l]
-# templating sugar syntax
-# - bundle it in composer
+# templating sugar syntax (DONE)
+# - bundle it in composer (DONE)
 #? name #
 #! detect keywords
 #(name[1])
-#end
-#if
-#else
-#switch
+#end (DONE)
+#if (DONE)
+#else (DONE)
+#switch 
 #case
 #: components/html
 #extends("components/header")
-#["components/header"]
+#["components/header"] (DONE)
 ### SSS
 #=  Name =#
 #= Sname
 #- hello World
-#{components/html}
+#{components/html} (DONE)
 # uploading
 ## tolearn 
 ## controllers 
