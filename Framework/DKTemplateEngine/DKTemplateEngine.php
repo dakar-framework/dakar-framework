@@ -17,7 +17,7 @@
         ];
 
         // Will translate tdk files to php file .
-        public static function compile($tdk_file,$output_destination)  {
+        public static function compile($tdk_file,$output_destination=".")  {
             
             // Get the file into array
             $t_file = explode("\n",file_get_contents($tdk_file));
@@ -36,10 +36,10 @@
 
             $rendered_template = implode("\n",$rendered_template);
             echo $rendered_template . "\n";
-            // $tdk_file = explode(".",$tdk_file)[0];
-            // $rendered_file = fopen("$output_destination" . "/" . "$tdk_file.php", 'w');
-            // fwrite($rendered_file,$rendered_template);
-            // fclose($rendered_file);
+            $tdk_file = explode(".",$tdk_file)[0];
+            $rendered_file = fopen("$output_destination" . "/" . "$tdk_file.php", 'w');
+            fwrite($rendered_file,$rendered_template);
+            fclose($rendered_file);
         }
        
         // replace echo statements #()
@@ -194,8 +194,7 @@
 
     }
 }
-    
-        DKTemplateEngine::compile("file.tdk",".");
+
         
         
 ?>
