@@ -35,10 +35,12 @@
             }
 
             $rendered_template = implode("\n",$rendered_template);
-            $tdk_file = explode(".",$tdk_file)[0];
+            $tdk_file = mb_substr($tdk_file,0,-4);
+            $tdk_file = @end(explode("/",$tdk_file));
             $rendered_file = fopen("$output_destination" . "/" . "$tdk_file.php", 'w');
             fwrite($rendered_file,$rendered_template);
             fclose($rendered_file);
+            echo "Created file $tdk_file.php\n";
         }
        
         // replace echo statements #()
