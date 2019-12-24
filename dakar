@@ -94,11 +94,12 @@ switch($argv[1]){
 											array_pop($destination);
 											$destination = implode("/",$destination);
 											Parser::parse(getcwd() . "/App/$currentFileDirectory", getcwd() ."/App/.php/$destination");
-										}else if(explode(".",$currentFileDirectory)[1] == "tdk") {
+										}
+										if(explode(".",$currentFileDirectory)[1] == "tdk") {
 											$destination = @explode("/",$currentFileDirectory);
 											array_pop($destination);
 											$destination = implode("/",$destination);
-											DKTemplateEngine::compile(getcwd() . "/App/$currentFileDirectory",getcwd() ."/App/.php/$destination");
+											DKTemplateEngine::compile(getcwd() . "/App/$currentFileDirectory", getcwd() ."/App/.php/$destination");
 										}
 									} 
 									else {

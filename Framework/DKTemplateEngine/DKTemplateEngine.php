@@ -193,9 +193,5 @@
 
     }
 }
-
-DKTemplateEngine::compile("file.tdk","../../../Fructose/");
-
-        
         
 ?>
