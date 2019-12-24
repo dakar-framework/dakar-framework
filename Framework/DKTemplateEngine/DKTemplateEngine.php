@@ -17,7 +17,7 @@
         ];
 
         // Will translate tdk files to php file .
-        public static function compile($tdk_file,$output_destination=".")  {
+        public static function compile($tdk_file,$output_destination)  {
             
             // Get the file into array
             $t_file = explode("\n",file_get_contents($tdk_file));
@@ -193,6 +193,8 @@
 
     }
 }
+
+DKTemplateEngine::compile("file.tdk","../../../Fructose/");
 
         
         

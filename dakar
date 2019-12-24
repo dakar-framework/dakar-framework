@@ -98,7 +98,7 @@ switch($argv[1]){
 											$destination = @explode("/",$currentFileDirectory);
 											array_pop($destination);
 											$destination = implode("/",$destination);
-											DKTemplateEngine::compile(getcwd() . "/App/$currentFileDirectory", getcwd() ."/App/.php/$destination");
+											DKTemplateEngine::compile(getcwd() . "/App/$currentFileDirectory",getcwd() ."/App/.php/$destination");
 										}
 									} 
 									else {
