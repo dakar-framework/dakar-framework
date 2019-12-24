@@ -40,7 +40,7 @@
             $rendered_file = fopen("$output_destination" . "/" . "$tdk_file.php", 'w');
             fwrite($rendered_file,$rendered_template);
             fclose($rendered_file);
-            echo "Created file $tdk_file.php\n";
+            echo("Created file $output_destination/$tdk_file.php\n");
         }
        
         // replace echo statements #()
@@ -135,7 +135,7 @@
                         }
 
                     } else {
-                        $rendered_evaluation ="($$to_evaluate[1] as $$to_evaluate[0])";
+                        $rendered_evaluation ="($$to_evaluate[1] as $$to_evaluate[0]){";
                         $rendered_expr = "<?php $directive"."each" . "$rendered_evaluation ?>";
                     }
                 }
